@@ -15,17 +15,23 @@ public class Craps
 		Scanner in = new Scanner(System.in);
 		Dice dice1 = new Dice();
 		Dice dice2 = new Dice();
-
+		DiceDisplay dd = new DiceDisplay();
+		
 		System.out.print("Welcome  to Craps! Please press \"y\" to begin"); 
 		String ans;
 		ans = in.nextLine();
+		
 		while (ans.equals("y"))
 		{
 			int roll1 = dice1.roll();
 			int roll2 = dice2.roll();
 			int point = 0;
 			boolean afterFirst = false;
-			System.out.println("You rolled a " + roll1 + " and a " + roll2);
+			System.out.println("You rolled " + roll1 + " and " + roll2);
+			dd.printDice(roll1);
+			System.out.println("");
+			System.out.println("");
+			dd.printDice(roll2);
 			if (roll1 + roll2 == 7 || roll1 + roll2 == 11)
 			{
 				System.out.println("You win!");
@@ -48,7 +54,11 @@ public class Craps
 				in.nextLine();
 				roll1 = dice1.roll();
 				roll2 = dice2.roll();
-				System.out.println("You rolled a " + roll1 + " and a " + roll2);
+				System.out.println("You rolled " + roll1 + " and " + roll2);
+				dd.printDice(roll1);
+				System.out.println("");
+				System.out.println("");
+				dd.printDice(roll2);
 				if (roll1+roll2 == point) 
 				{
 					System.out.println("You win!");
@@ -68,6 +78,7 @@ public class Craps
 			{
 				System.out.println("Thanks for playing!");
 			}
+		
 		}
 		
 	}
